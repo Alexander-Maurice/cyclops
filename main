@@ -1,0 +1,22 @@
+def cyclops(n, list):
+    ans = count = 0
+
+    while count != n:
+        if len(list) > 1:
+            if abs(list[0] - list[1]) <= 2:
+                count += 2
+                ans += 1
+                list = list[2:]
+            else:
+                count += 1
+                ans += 1
+                list = list[1:]
+        else:
+            ans += 1
+            return ans
+
+    return ans
+
+n = int(input('Введите количество циклопов: '))
+nw_list = input('Веедите список диоптрий через пробел в одну строку: ')
+print(cyclops(n, list(map(int, nw_list.split()))))
